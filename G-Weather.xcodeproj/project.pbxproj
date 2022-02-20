@@ -77,12 +77,12 @@
 		68CDBF5B27B8D68D004EB147 /* G-Weather */ = {
 			isa = PBXGroup;
 			children = (
+				68CDBF6227B8D68D004EB147 /* Main.storyboard */,
+				6830D71B27BFF1A300EBD5DE /* ListTableViewController.swift */,
 				6830D71927BFF0F800EBD5DE /* View */,
 				6830D71827BFF0E500EBD5DE /* Model */,
 				6830D71A27BFF10D00EBD5DE /* Support */,
 				68CDBF6527B8D68E004EB147 /* Assets.xcassets */,
-				68CDBF6227B8D68D004EB147 /* Main.storyboard */,
-				6830D71B27BFF1A300EBD5DE /* ListTableViewController.swift */,
 				68CDBF5E27B8D68D004EB147 /* SceneDelegate.swift */,
 				68CDBF5C27B8D68D004EB147 /* AppDelegate.swift */,
 				68CDBF6727B8D68E004EB147 /* LaunchScreen.storyboard */,
