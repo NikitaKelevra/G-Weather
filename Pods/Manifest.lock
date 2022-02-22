@@ -1,0 +1,21 @@
+PODS:
+  - SwiftSVG (2.3.2)
+
+DEPENDENCIES:
+  - SwiftSVG (from `https://github.com/mchoe/SwiftSVG.git`)
+
+EXTERNAL SOURCES:
+  SwiftSVG:
+    :git: https://github.com/mchoe/SwiftSVG.git
+
+CHECKOUT OPTIONS:
+  SwiftSVG:
+    :commit: 88b9ee086b29019e35f6f49c8e30e5552eb8fa9d
+    :git: https://github.com/mchoe/SwiftSVG.git
+
+SPEC CHECKSUMS:
+  SwiftSVG: 985783b9c5359cb54c1bb956ae92f7f814e194ab
+
+PODFILE CHECKSUM: 9531c407fbaffb7e552ab62c1812dede8db14b34
+
+COCOAPODS: 1.11.2

@@ -37,6 +37,8 @@ class DetailViewController: UIViewController {
         tempCity.text = "\((weatherModel?.temperature)!)"
         pressureLabel.text = "\((weatherModel?.pressureMm)!)"
         windSpeedLabel.text = "\((weatherModel?.windSpeed)!)"
+        minTempLabel.text = "\((weatherModel?.tempMin)!)"
+        maxTempLabel.text = "\((weatherModel?.tempMax)!)"
     }
 
 }
