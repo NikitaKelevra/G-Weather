@@ -9,7 +9,7 @@
 + Фреймворк UIKit, дополнительно Swift SVG: https://github.com/mchoe/SwiftSVG
 + API - Яндекс.Погода https://yandex.ru/dev/weather/doc/dg/concepts/about.html
 
-
+Дополнительно использовал сайт https://app.quicktype.io/ при парсинге JSON.
 ___
 ### Контакты разработчика:
 
