@@ -17,18 +17,38 @@ class ListTableViewController: UITableViewController {
     let emptyCity = Weather()
     
     var citiesArray = [Weather]()
+    var filterCityArray = [Weather]()
 //    let nameCitiesArray = ["Москва", "Санкт-Петербург", "Иваново", "Кострома",
 //                           "Ярославль", "Сосновый бор", "Светогорск", "Екатеринбург", "Судак", "Сочи"]
     var nameCitiesArray = ["Москва", "Петербург", "Пенза", "Уфа",
                            "Новосибирск", "Челябинск", "Омск", "Екатеринбург", "Томск", "Сочи"]
     
+    let searchController = UISearchController(searchResultsController: nil)
     
-    let networkManager = NetworkManager()
+    var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
+    var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
+    
+//    let networkManager = NetworkManager()
     
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
         
         if citiesArray.isEmpty {
             citiesArray = Array(repeating: emptyCity, count: nameCitiesArray.count)
@@ -63,56 +83,88 @@ class ListTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
 
-            
         }
     }
     
     
     // MARK: - Table view data source
 
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isFiltering {
+            return filterCityArray.count
+        }
         return citiesArray.count
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListCell
-
+        
         
         var weather = Weather()
-        weather = citiesArray[indexPath.row]
+        
+        if isFiltering {
+            weather = filterCityArray[indexPath.row]
+        } else {
+            weather = citiesArray[indexPath.row]
+        }
+        
         cell.configure(weather: weather)
-
+        
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
         let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (_ , _ , complitionHandler) in
             let editingRow = self.nameCitiesArray[indexPath.row]
             if let index = self.nameCitiesArray.firstIndex(of: editingRow) {
-                self.citiesArray.remove(at: index)
+                
+                if self.isFiltering {
+                    self.filterCityArray.remove(at: index)
+                } else {
+                    self.citiesArray.remove(at: index)
+                }
             }
             tableView.reloadData()
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    
-    
-    
-    
-    
+        
+        // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
-            let cityWeather = citiesArray[indexPath.row]
-            let detailListVC = segue.destination as! DetailViewController
-            detailListVC.weatherModel = cityWeather
+            if isFiltering {
+                
+                let filter = filterCityArray[indexPath.row]
+                let detailListVC = segue.destination as! DetailViewController
+                detailListVC.weatherModel = filter
             
+            } else {
+                
+                let cityWeather = citiesArray[indexPath.row]
+                let detailListVC = segue.destination as! DetailViewController
+                detailListVC.weatherModel = cityWeather
+            }
         }
+    }
+}
+
+extension ListTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filterCityArray = citiesArray.filter{
+            $0.name.contains(searchText)
+        }
+        tableView.reloadData()
+        
     }
 }
