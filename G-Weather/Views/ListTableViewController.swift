@@ -13,8 +13,11 @@ class ListTableViewController: UITableViewController {
     let emptyCity = Weather()
     
     var citiesArray = [Weather]()
-    let nameCitiesArray = ["Москва", "Санкт-Петербург", "Иваново", "Кострома",
-                           "Ярославль", "Сосновый бор", "Светогорск", "Екатеринбург", "Судак", "Сочи"]
+//    let nameCitiesArray = ["Москва", "Санкт-Петербург", "Иваново", "Кострома",
+//                           "Ярославль", "Сосновый бор", "Светогорск", "Екатеринбург", "Судак", "Сочи"]
+    let nameCitiesArray = ["Москва", "Петербург", "Пенза", "Уфа",
+                           "Новосибирск", "Челябинск", "Омск", "Екатеринбург", "Томск", "Сочи"]
+    
     
     let networkManager = NetworkManager()
     
@@ -69,4 +72,16 @@ class ListTableViewController: UITableViewController {
         return cell
     }
 
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let cityWeather = citiesArray[indexPath.row]
+            let detailListVC = segue.destination as! DetailViewController
+            detailListVC.weatherModel = cityWeather
+            
+        }
+    }
 }
