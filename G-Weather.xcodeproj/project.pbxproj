@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6830D71C27BFF1A300EBD5DE /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6830D71B27BFF1A300EBD5DE /* ListTableViewController.swift */; };
+		68A636E127C63062002A9D81 /* addCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A636E027C63062002A9D81 /* addCity.swift */; };
 		68C1111D27C2388500D7FED5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C1111C27C2388500D7FED5 /* Constant.swift */; };
 		68C1111F27C23A3400D7FED5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C1111E27C23A3400D7FED5 /* NetworkManager.swift */; };
 		68C1112127C23BAC00D7FED5 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C1112027C23BAC00D7FED5 /* WeatherData.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		6830D71B27BFF1A300EBD5DE /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		68A636E027C63062002A9D81 /* addCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCity.swift; sourceTree = "<group>"; };
 		68C1111C27C2388500D7FED5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		68C1111E27C23A3400D7FED5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		68C1112027C23BAC00D7FED5 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
@@ -62,7 +64,6 @@
 				856C684A90815C1C9A622102 /* Pods-G-Weather.debug.xcconfig */,
 				A00074E14F0DFA0FB4699B99 /* Pods-G-Weather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -73,6 +74,7 @@
 				68C1112027C23BAC00D7FED5 /* WeatherData.swift */,
 				68C1111E27C23A3400D7FED5 /* NetworkManager.swift */,
 				68C1112227C2456E00D7FED5 /* Weather.swift */,
+				68A636E027C63062002A9D81 /* addCity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6830D71C27BFF1A300EBD5DE /* ListTableViewController.swift in Sources */,
+				68A636E127C63062002A9D81 /* addCity.swift in Sources */,
 				68C1111F27C23A3400D7FED5 /* NetworkManager.swift in Sources */,
 				68C1112527C2874900D7FED5 /* GetCitiesWeather.swift in Sources */,
 				68CDBF5D27B8D68D004EB147 /* AppDelegate.swift in Sources */,

@@ -10,12 +10,16 @@ import UIKit
 
 class ListTableViewController: UITableViewController {
     
+    
+    
+    
+    
     let emptyCity = Weather()
     
     var citiesArray = [Weather]()
 //    let nameCitiesArray = ["Москва", "Санкт-Петербург", "Иваново", "Кострома",
 //                           "Ярославль", "Сосновый бор", "Светогорск", "Екатеринбург", "Судак", "Сочи"]
-    let nameCitiesArray = ["Москва", "Петербург", "Пенза", "Уфа",
+    var nameCitiesArray = ["Москва", "Петербург", "Пенза", "Уфа",
                            "Новосибирск", "Челябинск", "Омск", "Екатеринбург", "Томск", "Сочи"]
     
     
@@ -33,6 +37,18 @@ class ListTableViewController: UITableViewController {
         addCities()
 
     }
+    
+    
+    
+    @IBAction func pressAddCityButton(_ sender: Any) {
+        alertPlusCity(name: "Город", placeholder: "Введите название города") { (city) in
+            self.nameCitiesArray.append(city)
+            self.citiesArray.append(self.emptyCity)
+            self.addCities()
+        }
+        
+    }
+    
     
     // MARK: - Func
     
@@ -72,6 +88,21 @@ class ListTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (_ , _ , complitionHandler) in
+            let editingRow = self.nameCitiesArray[indexPath.row]
+            if let index = self.nameCitiesArray.firstIndex(of: editingRow) {
+                self.citiesArray.remove(at: index)
+            }
+            tableView.reloadData()
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    
+    
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

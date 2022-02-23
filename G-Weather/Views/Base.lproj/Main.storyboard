@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4eh-2k-fUZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4NS-Ff-gf2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Table View Controller-->
+        <!--G-Weather-->
         <scene sceneID="jnh-gn-8ug">
             <objects>
                 <tableViewController id="4eh-2k-fUZ" customClass="ListTableViewController" customModule="G_Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,35 +18,35 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="onu-do-7vl" customClass="ListCell" customModule="G_Weather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onu-do-7vl" id="6qt-wd-zT2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-ye-6ky">
-                                            <rect key="frame" x="20" y="11" width="77.5" height="34"/>
+                                            <rect key="frame" x="20" y="11" width="77.5" height="37"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Статус" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhT-ZV-q54">
-                                            <rect key="frame" x="293.5" y="21" width="40.5" height="14.5"/>
+                                            <rect key="frame" x="293.5" y="22.5" width="40.5" height="14.5"/>
                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="skJ-ke-zNz" userLabel="Temp Stack View">
-                                            <rect key="frame" x="344" y="11" width="50" height="34"/>
+                                            <rect key="frame" x="344" y="11" width="50" height="37"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1l-KZ-vSN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="34"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="37"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="°С" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rru-1x-69t">
-                                                    <rect key="frame" x="25" y="0.0" width="25" height="33.5"/>
+                                                    <rect key="frame" x="25" y="0.0" width="25" height="36.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -83,10 +83,17 @@
                             <outlet property="delegate" destination="4eh-2k-fUZ" id="v4a-KO-Xek"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="G-Weather" id="09r-Fh-ZUb">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="vUA-6e-FhO">
+                            <connections>
+                                <action selector="pressAddCityButton:" destination="4eh-2k-fUZ" id="dah-Rq-YQu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCm-sG-wDe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="129"/>
+            <point key="canvasLocation" x="776.81159420289862" y="128.57142857142856"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="PTk-Hi-WRH">
@@ -272,7 +279,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCI-pv-LUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634.78260869565224" y="128.57142857142856"/>
+            <point key="canvasLocation" x="1544.9275362318842" y="128.57142857142856"/>
+        </scene>
+        <!--G-Weather-->
+        <scene sceneID="fIJ-cu-Kec">
+            <objects>
+                <navigationController title="G-Weather" automaticallyAdjustsScrollViewInsets="NO" id="4NS-Ff-gf2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rT1-w5-BVL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4eh-2k-fUZ" kind="relationship" relationship="rootViewController" id="DuH-bw-zMj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dcv-pH-Kze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-133.33333333333334" y="128.57142857142856"/>
         </scene>
     </scenes>
     <resources>
